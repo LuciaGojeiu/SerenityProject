@@ -13,7 +13,7 @@ public class LoginPage extends PageObject {
     private WebElementFacade passwordLoginField;
     @FindBy(css=".login .form-row .woocommerce-Button.button")
     private WebElementFacade loginButton;
-    @FindBy(xpath="//*[@id=\"post-7\"]/div/div/ul/li/text()")
+    @FindBy(css=".woocommerce-error li strong")
     private WebElementFacade errorUserNameLoginMessage;
 
 
@@ -28,7 +28,7 @@ public class LoginPage extends PageObject {
     }
 
     public void verifyNotLoggedInInvalidUserName(){
-        errorUserNameLoginMessage.shouldContainText("Invalid username");
+        errorUserNameLoginMessage.shouldContainText("ERROR" );
     }
 
 
