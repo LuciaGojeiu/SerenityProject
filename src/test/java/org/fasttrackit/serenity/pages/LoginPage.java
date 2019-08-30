@@ -15,6 +15,9 @@ public class LoginPage extends PageObject {
     private WebElementFacade loginButton;
     @FindBy(css=".woocommerce-error li strong")
     private WebElementFacade errorUserNameLoginMessage;
+    @FindBy(css=".widget.widget_meta li:nth-child(2) a")
+    private WebElementFacade loginLink;
+
 
 
     public void setEmailLoginField(String email){
@@ -30,7 +33,9 @@ public class LoginPage extends PageObject {
     public void verifyNotLoggedInInvalidUserName(){
         errorUserNameLoginMessage.shouldContainText("ERROR" );
     }
-
+    public boolean verifyLogout(){
+        return loginLink.isCurrentlyVisible();
+    }
 
 
 

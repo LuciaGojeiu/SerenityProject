@@ -9,8 +9,13 @@ import net.thucydides.core.annotations.DefaultUrl;
 public class AccountPage extends PageObject {
    @FindBy(css=".woocommerce-MyAccount-content p:first-child")
     private WebElementFacade helloText;
+   @FindBy(css=".woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--customer-logout a")
+    private WebElementFacade logoutLink;
 
    public void verifyLoggedIn(String username){
        helloText.shouldContainText("Hello "+ username);
+   }
+   public void clickLogoutLink(){
+       clickOn(logoutLink);
    }
 }

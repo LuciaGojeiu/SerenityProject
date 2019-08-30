@@ -9,8 +9,15 @@ import net.thucydides.core.annotations.DefaultUrl;
 public class HomePage extends PageObject {
     @FindBy(css=".menu a[href*='my-account']")
     private WebElementFacade myAccountLink;
+    @FindBy(css=".menu a[href*='shop']")
+    private WebElementFacade shopLink;
+
     public void clickMyAccountLink(){
         clickOn(myAccountLink);
+    }
+
+    public void clickShopLink(){
+        clickOn(shopLink);
     }
 
 }
