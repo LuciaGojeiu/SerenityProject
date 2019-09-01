@@ -2,6 +2,7 @@ package org.fasttrackit.serenity.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.serenity.pages.*;
+import org.junit.Assert;
 
 public class CartSteps {
     private HomePage homePage;
@@ -20,16 +21,17 @@ public class CartSteps {
       shopPage.setSearchField(keyword);
   }
   @Step
-   public void chooseFirstBeanieProduct(){
-      searchPage.clickFirstBeanieProductLink();
+   public void chooseFirstProduct(){
+      searchPage.clickFirstProductLink();
   }
   @Step
-    public void addToCartBeanieProduct(){
+    public void addToCartProduct(){
       productPage.clickAddToCartButton();
   }
   @Step
-    public void checkBeanieProductinCart(){
+    public void checkProductinCart(){
       productPage.clickViewCartButton();
-      cartPage.verifyBeanieProductInCart();
+      Assert.assertTrue(cartPage.verifyProductSentToCart());
   }
+
 }

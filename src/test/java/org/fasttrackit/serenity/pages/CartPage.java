@@ -7,10 +7,13 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("http://qa1.fasttrackit.org:8008/cart/")
 public class CartPage extends PageObject {
-    @FindBy(css="td.product-name")
-    private WebElementFacade beanieProductName;
+    @FindBy(css=".checkout-button")
+    private WebElementFacade proceedToCheckoutButton;
 
-    public void verifyBeanieProductInCart(){
-      beanieProductName.shouldContainText("Beanie with Logo");
+    public boolean verifyProductSentToCart(){
+      return proceedToCheckoutButton.isClickable();
+    }
+    public void clickProceedToCheckoutButton(){
+        clickOn(proceedToCheckoutButton);
     }
 }

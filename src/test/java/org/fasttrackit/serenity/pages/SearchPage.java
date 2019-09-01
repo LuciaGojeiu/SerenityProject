@@ -9,8 +9,8 @@ public class SearchPage extends PageObject {
     private WebElementFacade searchResultsMessage;
     @FindBy(css=".page-content p")
     private WebElementFacade nothingFoundSearchResultMessage;
-    @FindBy(css=".entry-title a[href*='beanie-with-logo']")
-    private WebElementFacade firstBeanieProduct;
+    @FindBy(css="article:nth-child(2) h1 a")
+    private WebElementFacade firstProduct;
 
     public void verifySearchResultsMessage(String keyword){
         searchResultsMessage.shouldContainText("Search Results for: "+ keyword);
@@ -19,8 +19,8 @@ public class SearchPage extends PageObject {
        return nothingFoundSearchResultMessage.containsOnlyText("Sorry, but nothing matched your search terms. " +
                 "Please try again with some different keywords.");
     }
-    public void clickFirstBeanieProductLink(){
-        clickOn(firstBeanieProduct);
+    public void clickFirstProductLink(){
+        clickOn(firstProduct);
     }
 
 }

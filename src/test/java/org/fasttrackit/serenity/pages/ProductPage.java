@@ -7,8 +7,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("http://qa1.fasttrackit.org:8008/product/")
 public class ProductPage extends PageObject {
-    @FindBy(css=".product_title.entry-title")
-    private WebElementFacade beanieProductTitle;
     @FindBy(css=".single_add_to_cart_button.button.alt")
     private WebElementFacade addToCartButton;
     @FindBy(css=".button.wc-forward")
@@ -20,7 +18,5 @@ public class ProductPage extends PageObject {
     public void clickViewCartButton(){
         clickOn(viewCartButton);
     }
-
-
 
 }
