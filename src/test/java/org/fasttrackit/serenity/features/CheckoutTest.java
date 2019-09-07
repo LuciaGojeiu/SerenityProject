@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.serenity.steps.CartSteps;
 import org.fasttrackit.serenity.steps.CheckoutSteps;
+import org.fasttrackit.serenity.steps.ShopSteps;
 import org.fasttrackit.serenity.utils.Constants;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,9 @@ public class CheckoutTest {
     public void maximizeWindow(){
         driver.manage().window().maximize();
     }
+
+    @Steps
+    private ShopSteps shopSteps;
     @Steps
     private CartSteps cartSteps;
     @Steps
@@ -27,7 +31,7 @@ public class CheckoutTest {
 
     @Test
     public void placeAnOrderTest(){
-        cartSteps.navigateToShopPage();
+        shopSteps.navigateToShopPage();
         cartSteps.searchForKeyword(keyword);
         cartSteps.chooseFirstProduct();
         cartSteps.addToCartProduct();

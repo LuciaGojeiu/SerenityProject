@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.serenity.steps.SearchSteps;
+import org.fasttrackit.serenity.steps.ShopSteps;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,19 +20,21 @@ public class SearchTest {
     }
 
     @Steps
+    private ShopSteps shopSteps;
+    @Steps
     private SearchSteps searchSteps;
 
     private String keyword="beanie";
 
     @Test
     public void searchForAValidKeywordTest(){
-        searchSteps.navigateToShopPage();
+        shopSteps.navigateToShopPage();
         searchSteps.searchForKeyword(keyword);
         searchSteps.checkSearchResultMessage(keyword);
     }
     @Test
     public void searchForANonValidKeywordTest(){
-        searchSteps.navigateToShopPage();
+        shopSteps.navigateToShopPage();
         searchSteps.searchForKeyword(keyword);
         searchSteps.checkNothingFoundSearchResultMessage();
     }

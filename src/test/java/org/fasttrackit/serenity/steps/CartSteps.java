@@ -5,17 +5,11 @@ import org.fasttrackit.serenity.pages.*;
 import org.junit.Assert;
 
 public class CartSteps {
-    private HomePage homePage;
     private ShopPage shopPage;
     private SearchPage searchPage;
     private ProductPage productPage;
     private CartPage cartPage;
 
-  @Step
-  public void navigateToShopPage(){
-      homePage.open();
-      homePage.clickShopLink();
-  }
   @Step
   public void searchForKeyword(String keyword) {
       shopPage.setSearchField(keyword);
@@ -32,6 +26,10 @@ public class CartSteps {
     public void checkProductinCart(){
       productPage.clickViewCartButton();
       Assert.assertTrue(cartPage.verifyProductSentToCart());
+  }
+  @Step
+    public void checkTotalPrice(byte quantity){
+      Assert.assertTrue(cartPage.verifyTotalPrice(quantity));
   }
 
 }

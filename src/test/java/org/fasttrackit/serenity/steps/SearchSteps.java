@@ -8,15 +8,9 @@ import org.junit.Assert;
 
 public class SearchSteps {
 
-    private HomePage homePage;
     private ShopPage shopPage;
     private SearchPage searchPage;
 
-    @Step
-    public void navigateToShopPage(){
-        homePage.open();
-        homePage.clickShopLink();
-    }
     @Step
     public void searchForKeyword(String keyword){
         shopPage.setSearchField(keyword);

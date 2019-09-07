@@ -17,7 +17,7 @@ public class HomePage extends PageObject {
     }
 
     public void clickShopLink(){
-        clickOn(shopLink);
+         clickOn(shopLink);
     }
 
 }

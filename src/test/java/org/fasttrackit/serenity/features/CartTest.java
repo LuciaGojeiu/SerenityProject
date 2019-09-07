@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.serenity.steps.CartSteps;
+import org.fasttrackit.serenity.steps.ShopSteps;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,16 +21,29 @@ public class CartTest {
     }
 
     @Steps
+    private ShopSteps shopSteps;
+    @Steps
     private CartSteps cartSteps;
 
+
     private String keyword="beanie";
+    private byte quantity=5;
 
     @Test
     public void addToCartProductTest(){
-        cartSteps.navigateToShopPage();
+        shopSteps.navigateToShopPage();
         cartSteps.searchForKeyword(keyword);
         cartSteps.chooseFirstProduct();
         cartSteps.addToCartProduct();
         cartSteps.checkProductinCart();
+    }
+    @Test
+    public void verifyTotalPriceCalculation(){
+        shopSteps.navigateToShopPage();
+        shopSteps.sortShopProductsByDate();
+        shopSteps.addProductToCart();
+        shopSteps.navigateToCartPage();
+        cartSteps.checkTotalPrice(quantity);
+
     }
 }
