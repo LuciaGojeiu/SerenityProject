@@ -17,6 +17,12 @@ public class CartPage extends PageObject {
     private WebElementFacade productQuantity;
     @FindBy(css=".cart tbody tr:first-child .product-subtotal>span")
     private WebElementFacade productTotalPrice;
+    @FindBy(css="button[name*='update']")
+    private WebElementFacade updateCartButton;
+    @FindBy(css=".product-remove a")
+    private WebElementFacade productRemoveLink;
+    @FindBy(css=".cart-empty")
+    private WebElementFacade cartEmptyText;
     private int productPriceInt;
     private int productTotalPriceInt;
 
@@ -27,7 +33,12 @@ public class CartPage extends PageObject {
         clickOn(proceedToCheckoutButton);
     }
 
-
+    public void selectQuantity(String quantity){
+        typeInto(productQuantity,quantity);
+    }
+    public void clickUpdateCartButton(){
+        clickOn(updateCartButton);
+    }
 
      public int getProductPriceInt() {
          for (int i = 0; i < productPrice.getText().length(); i++) {
@@ -46,10 +57,18 @@ public class CartPage extends PageObject {
         return productTotalPriceInt;
     }
 
-    public boolean verifyTotalPrice(byte quantity){
-        if(productPriceInt*quantity==productTotalPriceInt) {
+
+    public boolean verifyTotalPrice(String quantity){
+        if(productPriceInt*Integer.valueOf(quantity)==productTotalPriceInt) {
             return true;
         }
         else return false;
       }
+
+    public void clickProductRemoveLink(){
+        clickOn(productRemoveLink);
+    }
+    public boolean checkCartEmpty(){
+        return cartEmptyText.containsOnlyText("Your cart is currently empty.");
+    }
 }

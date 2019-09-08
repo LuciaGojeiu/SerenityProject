@@ -12,6 +12,7 @@ public class SearchPage extends PageObject {
     @FindBy(css="article:nth-child(2) h1 a")
     private WebElementFacade firstProduct;
 
+
     public void verifySearchResultsMessage(String keyword){
         searchResultsMessage.shouldContainText("Search Results for: "+ keyword);
     }

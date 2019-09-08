@@ -25,10 +25,7 @@ public class RegisterSteps {
     public void checkRegistered(){
      Assert.assertFalse(registerPage.verifyRegister());
  }
- @Step
-    public void checkNotRegistered(){
-     Assert.assertTrue(registerPage.verifyRegister());
-    }
+
   @Step
     public void checkNotRegisterTwiceSameEmail(){
       registerPage.verifyNotRegisterTwiceSameEmail();

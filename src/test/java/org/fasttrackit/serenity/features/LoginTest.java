@@ -21,13 +21,13 @@ public class LoginTest {
     private LoginSteps loginSteps;
 
  @Test
-    public void validLogin(){
+    public void validLoginTest(){
      loginSteps.navigateToLoginPage();
      loginSteps.performLogin(Constants.USER_EMAIL, Constants.USER_PASSWORD);
      loginSteps.checkLoggedIn(Constants.USER_NAME);
  }
  @Test
- public void invalidUserNameLogin() {
+ public void invalidUserNameLoginTest() {
      loginSteps.navigateToLoginPage();
      loginSteps.performLogin("madison", Constants.USER_PASSWORD);
      loginSteps.checkNotLoggedInInvalidUserName();

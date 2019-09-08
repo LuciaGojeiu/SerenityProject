@@ -49,6 +49,7 @@ public class ShopPage extends PageObject {
         clickOn(firstProductAddToCartButton);
     }
     public void clickViewShoppingCartLink(){
+        waitABit(5000);
         clickOn(viewShoppingCartLink);
     }
 

@@ -28,7 +28,7 @@ public class RegisterPage extends PageObject {
         clickOn(registerButton);
     }
     public boolean verifyRegister(){
-         return registerLink.isCurrentlyVisible();
+         return registerLink.isDisplayed();
     }
     public void verifyNotRegisterTwiceSameEmail(){
         errorMessageRegisterSameEmail.shouldContainText("Error: An account is already registered with your email address. Please log in.");

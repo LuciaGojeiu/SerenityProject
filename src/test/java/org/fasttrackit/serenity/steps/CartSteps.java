@@ -15,21 +15,40 @@ public class CartSteps {
       shopPage.setSearchField(keyword);
   }
   @Step
-   public void chooseFirstProduct(){
+  public void chooseFirstProduct(){
       searchPage.clickFirstProductLink();
   }
   @Step
-    public void addToCartProduct(){
+  public void addToCartProduct(){
       productPage.clickAddToCartButton();
   }
   @Step
-    public void checkProductinCart(){
+    public void navigateToCartPage() {
       productPage.clickViewCartButton();
+  }
+
+  @Step
+    public void checkProductinCart(){
       Assert.assertTrue(cartPage.verifyProductSentToCart());
   }
   @Step
-    public void checkTotalPrice(byte quantity){
+  public void updateProductQuantityInCart(String quantity){
+      cartPage.selectQuantity(quantity);
+      cartPage.clickUpdateCartButton();
+  }
+
+  @Step
+    public void checkTotalPrice(String quantity){
       Assert.assertTrue(cartPage.verifyTotalPrice(quantity));
+  }
+
+  @Step
+   public void removeProduct(){
+      cartPage.clickProductRemoveLink();
+  }
+  @Step
+   public void verifyCartIsEmpty(){
+      Assert.assertTrue("The product is not removed form the cart",cartPage.checkCartEmpty());
   }
 
 }

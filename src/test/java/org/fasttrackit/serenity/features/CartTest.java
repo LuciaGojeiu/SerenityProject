@@ -27,23 +27,38 @@ public class CartTest {
 
 
     private String keyword="beanie";
-    private byte quantity=5;
+    private String quantity="5";
 
     @Test
-    public void addToCartProductTest(){
+    public void addProductToCartTest(){
         shopSteps.navigateToShopPage();
         cartSteps.searchForKeyword(keyword);
         cartSteps.chooseFirstProduct();
         cartSteps.addToCartProduct();
+        cartSteps.navigateToCartPage();
         cartSteps.checkProductinCart();
     }
     @Test
-    public void verifyTotalPriceCalculation(){
+    public void removeTheProductFromCartTest(){
+        shopSteps.navigateToShopPage();
+        cartSteps.searchForKeyword(keyword);
+        cartSteps.chooseFirstProduct();
+        cartSteps.addToCartProduct();
+        cartSteps.navigateToCartPage();
+        cartSteps.checkProductinCart();
+        cartSteps.removeProduct();
+        cartSteps.verifyCartIsEmpty();
+
+    }
+    @Test
+    public void verifyTotalPriceCalculationTest(){
         shopSteps.navigateToShopPage();
         shopSteps.sortShopProductsByDate();
         shopSteps.addProductToCart();
         shopSteps.navigateToCartPage();
+        cartSteps.updateProductQuantityInCart(quantity);
         cartSteps.checkTotalPrice(quantity);
-
     }
+
+
 }

@@ -3,13 +3,12 @@ package org.fasttrackit.serenity.steps;
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.serenity.pages.CartPage;
 import org.fasttrackit.serenity.pages.CheckoutPage;
-import org.fasttrackit.serenity.pages.OrderPage;
-import org.junit.Assert;
+import org.fasttrackit.serenity.pages.OrderReceivedPage;
 
 public class CheckoutSteps {
     private CartPage cartPage;
     private CheckoutPage checkoutPage;
-    private OrderPage orderPage;
+    private OrderReceivedPage orderReceivedPage;
 
 
   @Step
@@ -27,8 +26,8 @@ public class CheckoutSteps {
       checkoutPage.clickPlaceOrderButton();
   }
    @Step
-      public void verifyProductInOrder(){
-      orderPage.checkOrderReceived();
+      public void verifyProductPlacedInOrder(){
+      orderReceivedPage.checkOrderReceivedMessage();
   }
 
 }

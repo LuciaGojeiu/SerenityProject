@@ -57,6 +57,7 @@ public class CheckoutPage extends PageObject {
         typeInto(emailField, email);
     }
     public void clickPlaceOrderButton() {
+        waitABit(3000);
         clickOn(placeOrderButton);
     }
 

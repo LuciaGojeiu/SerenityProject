@@ -22,11 +22,9 @@ public class ShopTest {
     private ShopSteps shopSteps;
 
   @Test
-  public void verifyAddToCartButtonsVisibleInShopPage(){
+  public void addToCartButtonsVisibleInShopPageTest(){
       shopSteps.navigateToShopPage();
       shopSteps.checkAddToCartButtons();
   }
-
-
 
 }

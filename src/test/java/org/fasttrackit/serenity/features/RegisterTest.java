@@ -30,13 +30,7 @@ public class RegisterTest {
     }
 
     @Test
-    public void invalidEmailRegister(){
-        registerSteps.navigateToRegisterPage();
-        registerSteps.performRegister("madison.gmail.com", Constants.USER_PASSWORD);
-        registerSteps.checkNotRegistered();
-    }
-    @Test
-    public void registerTwiceWithTheSameEmail() {
+    public void registerTwiceWithTheSameEmailTest() {
         registerSteps.navigateToRegisterPage();
         registerSteps.performRegister(Constants.USER_EMAIL, Constants.USER_PASSWORD);
         registerSteps.checkNotRegisterTwiceSameEmail();
